@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+class A{
+
+private:
+    int availableBalance = 5000;
+    int widrawbalance;
+    void widrawBalance(){
+        cout<<widrawbalance<<" taka is widrawn from your totalbalance"<<endl;
+        cout<<"Your remaining balance is "<<availableBalance<<endl;
+    }
+    void insufficientBalance(){
+        cout<<"Insufficient balance in your account";
+    }
+
+public:
+    int checkBalance(int userBalance){
+        if(userBalance<availableBalance || userBalance==availableBalance){
+            widrawbalance = userBalance;
+            availableBalance = availableBalance - userBalance;
+            widrawBalance();
+
+        }
+        else if(userBalance>availableBalance){
+           insufficientBalance();
+        }
+    }
+
+};
+main()
+{
+    A a;
+    a.checkBalance(1500);
+    a.checkBalance(1500);
+    a.checkBalance(1500);
+    a.checkBalance(500);
+    a.checkBalance(1500);
+
+
+    return 0;
+}
