@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+    int n,maxindex=0,minindex=0;
+    cin>>n;
+    vector<int> h(n) ;
+    for(int i=0;i<n;i++) {
+        cin>>h[i];
+    }
+    for(int i=0;i<n;i++) {
+        if(h[i] > h[maxindex]) {
+            maxindex = i;
+        }
+    }
+    for(int i=0;i<n;i++) {
+        if(h[i] <= h[minindex]) {
+            minindex = i;
+        }
+    }
+
+    int ans = maxindex + (n-1-minindex);
+    if(maxindex > minindex) {
+        ans--;
+    }
+    cout<<ans<<endl;
+    return 0;
+}
